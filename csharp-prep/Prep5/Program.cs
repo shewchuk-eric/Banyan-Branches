@@ -1,6 +1,5 @@
 using System;
 
-// Author: Eric Shewchuk
 
 class Program
 {
