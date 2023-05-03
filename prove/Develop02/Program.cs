@@ -43,7 +43,8 @@ class Program
                         string[] parts = line.Split(","); // split the string into component parts
                         Entry loadedEntry = new Entry(); // create new object to hold values
                         loadedEntry._date = parts[0];
-                        loadedEntry._entryText = parts[1];
+                        loadedEntry._prompt = parts[1];
+                        loadedEntry._entryText = parts[2];
                         listFiles._loadedEntry.Add(loadedEntry); // add object into entries array
                     }
                     break;
