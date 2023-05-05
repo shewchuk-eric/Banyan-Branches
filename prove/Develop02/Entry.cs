@@ -21,7 +21,7 @@ public class Entry
         string prompt = prompts[number];
         return prompt;
     }
-    
+
     public void Display()
     {
         Console.WriteLine($"Date: {_date}, Prompt: {_prompt}, Entry: {_entryText}");

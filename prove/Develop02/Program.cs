@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        string[] menu = {"Write New Entry","Display Unsaved Entries","Load File","Display Previously Saved Entries","Save Entries","Quit Program"}; // list of entry choices
+        string[] menu = {"Write New Entry","Display Unsaved Entries","Load File","Display Loaded Entries","Save Entries","Quit Program"}; // list of entry choices
         //List<string> menu = new List<string>{"Write New Entry","Display Entries","Load File","Save Entries","Quit Program"}; // list of entry choices
         Console.WriteLine("Welcome To The Journal Program"); // print welcome message only at the start of the program
         bool runApp = true; // set main loop to run
