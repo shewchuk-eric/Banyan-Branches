@@ -34,17 +34,7 @@ class Program
                     listFiles.LoadFileNames(); // load and display available file names
                     Console.WriteLine("Please type the name of the file to load: "); // ask user to select the desired file
                     string selection = Console.ReadLine(); 
-                    string[] loadedEntries = System.IO.File.ReadAllLines(selection); // read the file into an array
-                    
-                    foreach (string line in loadedEntries) // loop through array to place into current entries for display
-                    {
-                        string[] parts = line.Split(","); // split the string into component parts
-                        Entry loadedEntry = new Entry(); // create new object to hold values
-                        loadedEntry._date = parts[0];
-                        loadedEntry._prompt = parts[1];
-                        loadedEntry._entryText = parts[2];
-                        listFiles._loadedEntry.Add(loadedEntry); // add object into entries array
-                    }
+                    listFiles.LoadFile(selection);
                     break;
                 case 4: // Display Previously Saved Entries
                     listFiles.ShowLoadedEntries();

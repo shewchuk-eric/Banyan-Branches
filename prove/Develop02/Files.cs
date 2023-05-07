@@ -21,6 +21,21 @@ public class Files // For handling file reads and saves
             i.Display(); // call the Entry 'Display' method to print each journal entry as the loop iterates
         }
     }
+
+    public void LoadFile(string selection)
+    {
+        string[] loadedEntries = System.IO.File.ReadAllLines(selection); // read the file into an array
+        foreach (string line in loadedEntries) // loop through array to place into current entries for display
+            {
+                string[] parts = line.Split(","); // split the string into component parts
+                string simple = "";
+                Entry loadedEntry = new Entry(simple); // create new object to hold values
+                loadedEntry._date = parts[0];
+                loadedEntry._prompt = parts[1];
+                loadedEntry._entryText = parts[2];
+                _loadedEntry.Add(loadedEntry); // add object into entries array
+            }
+    }
     
     public void LoadFileNames()
     {

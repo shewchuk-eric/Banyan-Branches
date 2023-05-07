@@ -4,11 +4,16 @@ public class Entry
     public string _prompt = setPrompt();
     public string _date = SetDate();
 
-    public Entry ()
+    public Entry()
     {
         Console.Write(_prompt); // print the prompt
         _entryText = Console.ReadLine(); // get user text entry
         //listFiles._addEntry.Add(_entryText); // add entry to list in 'Files'
+    }
+
+    public Entry(string simple)
+    {
+        //skip the prompt and date because this is only used when loading a file
     }
     
     static string SetDate()
