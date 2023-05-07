@@ -28,7 +28,7 @@ public class Files // For handling file reads and saves
         foreach (string line in loadedEntries) // loop through array to place into current entries for display
             {
                 string[] parts = line.Split(","); // split the string into component parts
-                string simple = "";
+                string simple = ""; // empty string is used to access the correct constructor method
                 Entry loadedEntry = new Entry(simple); // create new object to hold values
                 loadedEntry._date = parts[0];
                 loadedEntry._prompt = parts[1];
