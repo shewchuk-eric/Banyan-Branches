@@ -4,7 +4,12 @@ public class Entry
     public string _prompt = setPrompt();
     public string _date = SetDate();
 
-    
+    public Entry ()
+    {
+        Console.Write(_prompt); // print the prompt
+        _entryText = Console.ReadLine(); // get user text entry
+        //listFiles._addEntry.Add(_entryText); // add entry to list in 'Files'
+    }
     
     static string SetDate()
     {

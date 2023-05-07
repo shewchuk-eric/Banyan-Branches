@@ -25,8 +25,6 @@ class Program
             {
                 case 1: // Write New Entry
                     Entry newEntry = new Entry(); // create new 'Entry' object - will choose a prompt and set the date
-                    Console.Write(newEntry._prompt); // print the prompt
-                    newEntry._entryText = Console.ReadLine(); // get user text entry
                     listFiles._addEntry.Add(newEntry); // add entry to list in 'Files'
                     break;
                 case 2: // Display Unsaved Entries
