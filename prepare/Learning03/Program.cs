@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.Clear(); // clear the screen before printing
         Console.WriteLine("Welcome to the Fractionator!\n");
 
         Fraction wholeNumber = new Fraction();
