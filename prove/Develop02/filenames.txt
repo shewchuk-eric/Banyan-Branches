@@ -1,2 +1,2 @@
 myJournal.txt
-
+anotherFile.txt

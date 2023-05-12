@@ -8,7 +8,6 @@ public class Entry
     {
         Console.Write(_prompt); // print the prompt
         _entryText = Console.ReadLine(); // get user text entry
-        //listFiles._addEntry.Add(_entryText); // add entry to list in 'Files'
     }
 
     public Entry(string simple)

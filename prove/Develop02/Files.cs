@@ -37,7 +37,7 @@ public class Files // For handling file reads and saves
             }
     }
     
-    public void LoadFileNames()
+    public void LoadFileNames() 
     {
         string[] lines = System.IO.File.ReadAllLines("filenames.txt"); // read available filenames for loading into an array
         Console.WriteLine("Available Files:");
@@ -71,6 +71,10 @@ public class Files // For handling file reads and saves
                     outputFile.WriteLine($"{line}");
                 }
                 outputFile.WriteLine($"{_saveFileName}"); // then add the newest filename
+                using (StreamWriter makeNewFile = new StreamWriter(fileName))
+                {
+                    makeNewFile.WriteLine("");
+                }
             }
         }
 
