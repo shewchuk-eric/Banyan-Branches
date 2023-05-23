@@ -12,6 +12,11 @@ public class Reference
         _citation = ($"{name} {chapter}:{start}-{end}");
     }
 
+    public Reference(string name, string chapter, string start, string comma, string end)
+    {
+        _citation = ($"{name} {chapter}:{start}{comma} {end}");
+    }
+
     public string GetCitation()
     {
         return _citation;
