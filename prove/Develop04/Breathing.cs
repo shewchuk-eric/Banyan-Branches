@@ -1,21 +1,19 @@
 public class Breathing : Activity
 {    
-    private string _activity = "Breathing";
-    private string _mainMessage = "This activity will help you relax by walking you through breathing in and out slowly.  Clear your mind and focus on your breathing.";
+  
     private DateTime _start;
     
-    public Breathing()
+    public Breathing(string activity, string mainMessage) : base(activity, mainMessage)
     {
-        base.StartMessage(_activity, _mainMessage);
-        _start = base.SetTimer(5);
-        Cycle();
-        Console.WriteLine("Well Done!\n");
-        base.Spinner(3);
-        base.EndMessage(_activity);
-        base.Spinner(3);
+
     }
 
-    private void Cycle()
+    public void StartTimer(int delay)
+    {
+        _start = base.SetTimer(delay);
+    }
+
+    public void Cycle()
     {
         base.Countdown(); // initiate the starting countdown
         bool test = false;

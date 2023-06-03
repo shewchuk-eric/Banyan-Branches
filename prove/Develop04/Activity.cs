@@ -3,15 +3,28 @@ public class Activity
     private bool _timesUp = false; // tells cycle if it's time to end
     private int _howLong = 0; // user input for cycle run time
     private int _delay = 0;
+    private string _activity;
+    private string _mainMessage;
 
-    protected void StartMessage(string activity, string main)
+    
+    public Activity()
     {
-        Console.Clear();
-        Console.WriteLine($"Welcome to the {activity} Activity.\n");
-        Console.WriteLine(main + "\n");
+
+    }
+    public Activity(string activity, string mainMessage)
+    {
+        _activity = activity;
+        _mainMessage = mainMessage;
     }
 
-    protected void EndMessage(string cycle)
+    public void StartMessage()
+    {
+        Console.Clear();
+        Console.WriteLine($"Welcome to the {_activity} Activity.\n");
+        Console.WriteLine(_mainMessage + "\n");
+    }
+
+    public void EndMessage(string cycle)
     {
         Console.WriteLine($"You have completed another {_howLong - _delay} seconds of the {cycle} Activity.");
     }
@@ -37,7 +50,7 @@ public class Activity
         return _timesUp;
     }
 
-    protected void Countdown()
+    public void Countdown()
     {
         for (int i = 5; i > 0; i--) // loop to print a countdown to the terminal
         {
@@ -47,7 +60,7 @@ public class Activity
         }
     }
 
-    protected void Spinner(int seconds)
+    public void Spinner(int seconds)
     {
         for (int i = seconds; i > 0; i--) // loop to print a countdown to the terminal
         {
