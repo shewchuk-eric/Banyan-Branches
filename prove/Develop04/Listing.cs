@@ -20,15 +20,15 @@ public class Listing : Activity
         base.Spinner(5);
         Console.WriteLine("\nList as many responses as you can to the following prompt: ");
         base.Countdown();
-        Random randomGenerator = new Random(); // create a random number generator
+        Random randomGenerator = new Random(); // create a random number generator to select the prompt
         int number = randomGenerator.Next(0, _prompts.Length);
-        Console.WriteLine($"--- {_prompts[number]} ---\n");
+        Console.WriteLine($"--- {_prompts[number]} ---\n"); // print the prompt
         bool test = false;
-        while (!test)
+        while (!test) // loop until time runs out
         {
         Console.Write("> ");
-        Console.ReadLine();
-        _iterations ++;
+        Console.ReadLine(); // get user input
+        _iterations ++; // count the input
         test = base.TimeUp(_start); // check to see if time is up yet
         }
     }

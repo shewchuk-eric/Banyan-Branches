@@ -22,9 +22,10 @@ class Program
                 inhale.Cycle();
                 Console.WriteLine("Well Done!\n");
                 inhale.Spinner(3);
-                inhale.EndMessage(activity);
+                inhale.EndMessage();
                 inhale.Spinner(3);
                 break;
+
                 case "2":
                 string activity2 = "Reflection";
                 string mainMessage2 = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
@@ -37,9 +38,10 @@ class Program
                 deepThoughts.Question();
                 Console.WriteLine("Well Done!\n");
                 deepThoughts.Spinner(3);
-                deepThoughts.EndMessage(activity2);
+                deepThoughts.EndMessage();
                 deepThoughts.Spinner(3);
                 break;
+
                 case "3":
                 string activity3 = "Listing";
                 string mainMessage3 = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
@@ -50,13 +52,15 @@ class Program
                 doThis.MakeListings();
                 Console.WriteLine($"You listed {doThis.GetIterations()} items!\n\nWell Done!\n");
                 doThis.Spinner(3);
-                doThis.EndMessage(activity3);
+                doThis.EndMessage();
                 doThis.Spinner(3);
                 break;
+
                 case "4":
                 runProgram = false;
                 Console.WriteLine("Thanks for using the Mindfulness app.\n");
                 break;
+                
                 default:
                     Console.WriteLine($"{option} is not a valid entry.");
                     continue;
