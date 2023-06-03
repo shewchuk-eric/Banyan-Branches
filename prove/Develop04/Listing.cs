@@ -6,7 +6,7 @@ public class Listing : Activity
 
     public Listing(string activity, string mainMessage) : base(activity, mainMessage)
     {
-        
+
     }
 
     public void StartTimer(int delay)
@@ -17,9 +17,9 @@ public class Listing : Activity
     public void MakeListings()
     {
         Console.Write("Get Ready ... ");
-        //base.Spinner(5);
+        base.Spinner(5);
         Console.WriteLine("\nList as many responses as you can to the following prompt: ");
-        //base.Countdown();
+        base.Countdown();
         Random randomGenerator = new Random(); // create a random number generator
         int number = randomGenerator.Next(0, _prompts.Length);
         Console.WriteLine($"--- {_prompts[number]} ---\n");
@@ -29,7 +29,7 @@ public class Listing : Activity
         Console.Write("> ");
         Console.ReadLine();
         _iterations ++;
-        //test = base.TimeUp(_start); // check to see if time is up yet
+        test = base.TimeUp(_start); // check to see if time is up yet
         }
     }
 

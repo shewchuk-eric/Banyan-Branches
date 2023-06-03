@@ -46,7 +46,7 @@ class Program
                 Activity typeIt = new Activity();
                 Listing doThis = new Listing(activity3, mainMessage3);
                 doThis.StartMessage();
-                doThis.StartTimer(15);
+                doThis.StartTimer(10);
                 doThis.MakeListings();
                 Console.WriteLine($"You listed {doThis.GetIterations()} items!\n\nWell Done!\n");
                 doThis.Spinner(3);

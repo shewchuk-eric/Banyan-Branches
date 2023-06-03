@@ -6,8 +6,7 @@ public class Reflection : Activity
     private DateTime _start;
 
     public Reflection(string activity, string mainMessage) : base(activity, mainMessage)
-    {
-    }
+    {}
 
     public void StartTimer(int delay)
     {
@@ -41,7 +40,7 @@ public class Reflection : Activity
         else // print the question and add its index to the _used List
             {
                 Console.WriteLine($"> {_questions[number]}");
-                base.Spinner(8); // show the spinner for 5 seconds
+                base.Spinner(5); // show the spinner for 5 seconds
                 _used.Add(number); // add number to used numbers list so it cannot be used again
                 test = base.TimeUp(_start); // check to see if time is up yet
             }
