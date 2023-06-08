@@ -4,44 +4,40 @@ public class Reflection : Activity
     private string[] _questions = new string[] {"Why was this experience meaningful to you?","Have you ever done anything like this before?","How did you get started?","How did you feel when it was complete?","What made this time different than other times when you were not as successful?","What is your favorite thing about this experience?","What could you learn from this experience that applies to other situations?","What did you learn about yourself through this experience?","How can you keep this experience in mind in the future?"};
     private List<int> _used = new List<int>(); // holds the question index positions that have been used so there won't be repeats
     private DateTime _start;
+    private string _activity = "Reflection";
+    private string _message = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
 
-    public Reflection(string activity, string mainMessage) : base(activity, mainMessage)
-    {}
-
-    public void StartTimer(int delay)
+    public Reflection()
     {
-        _start = base.SetTimer(delay); // start the timer and add a delay to account for spinners and countdowns
+        base.Begin(_message, _activity);
+        Prompt();
+        base.Finish();
     }
 
-    public void Prompt()
+    private void Prompt()
     {
+        _start = base.SetTimer(10); // start the timer and add delay to account for spinners and countdowns
         Console.WriteLine("Consider the following prompt: ");
-        Random randomGenerator = new Random(); // create a random number generator to select the prompt
-        int number = randomGenerator.Next(0, _prompts.Length);
+        int number = base.Generator(_prompts.Length); // call random number generator to select an index position
         Console.WriteLine($"--- {_prompts[number]} ---\n"); // print the chosen prompt
         Console.WriteLine("When you have something in mind, press enter to continue.");
         Console.ReadLine(); // waiting for user to press enter key
-    }
-
-    public void Question()
-    {
         Console.WriteLine("Now ponder on each of the following questions as they related to this experience.\n");
         base.Countdown();
         Console.Clear();
         bool test = false;
         while (!test) // loop until the user selected time has passed
         {
-            Random randomGenerator = new Random(); // create a random number generator to select a question
-            int number = randomGenerator.Next(0, _questions.Length);
-            if (_used.Contains(number)) // check if random number has been used already
+            int rando = base.Generator(_questions.Length); // call random number generator to select an index position
+            if (_used.Contains(rando)) // check if random number has been used already
             {
                 continue; // random number already used so get another one           
             }
         else // print the question and add its index to the _used List
             {
-                Console.WriteLine($"> {_questions[number]}");
-                base.Spinner(5); // show the spinner for 5 seconds
-                _used.Add(number); // add number to used numbers list so it cannot be used again
+                Console.WriteLine($"> {_questions[rando]}");
+                base.Spinner(); // show the spinner for 5 seconds
+                _used.Add(rando); // add number to used numbers list so it cannot be used again
                 test = base.TimeUp(_start); // check to see if time is up yet
             }
         }     

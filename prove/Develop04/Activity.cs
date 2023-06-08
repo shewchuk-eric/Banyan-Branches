@@ -7,24 +7,31 @@ public class Activity
     private string _mainMessage;
 
     
-    public Activity()
-    {
+    public Activity() { }
 
-    }
-    public Activity(string activity, string mainMessage)
+    protected void Begin(string message, string activity)
     {
+        _mainMessage = message;
         _activity = activity;
-        _mainMessage = mainMessage;
+        StartMessage();
     }
 
-    public void StartMessage()
+    protected void Finish()
+    {
+        Console.WriteLine("Well Done!\n");
+        Spinner();
+        EndMessage();
+        Spinner();
+    }
+
+    private void StartMessage()
     {
         Console.Clear();
         Console.WriteLine($"Welcome to the {_activity} Activity.\n");
         Console.WriteLine(_mainMessage + "\n");
     }
 
-    public void EndMessage()
+    private void EndMessage()
     {
         Console.WriteLine($"You have completed another {_howLong - _delay} seconds of the {_activity} Activity.");
     }
@@ -50,7 +57,7 @@ public class Activity
         return _timesUp;
     }
 
-    public void Countdown()
+    protected void Countdown()
     {
         for (int i = 5; i > 0; i--) // loop to print a countdown to the terminal
         {
@@ -60,9 +67,9 @@ public class Activity
         }
     }
 
-    public void Spinner(int seconds) // each loop through is one second long
+    protected void Spinner() // each loop through is one second long
     {
-        for (int i = seconds; i > 0; i--) // loop to print a countdown to the terminal
+        for (int i = 3; i > 0; i--) // loop to print a countdown to the terminal - run for 3 seconds
         {
             Console.Write("|");
             Thread.Sleep(250);
@@ -77,6 +84,13 @@ public class Activity
             Thread.Sleep(250);
             Console.Write("\b \b");
         }
+    }
+
+    protected int Generator(int range)
+    {
+        Random randomNumber = new Random(); // create a random number generator to select a question
+        int rando = randomNumber.Next(0, range);
+        return rando;
     }
 
 }
