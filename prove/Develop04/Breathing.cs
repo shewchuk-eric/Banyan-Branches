@@ -13,7 +13,7 @@ public class Breathing : Activity
     }
 
 
-    public void Cycle()
+    private void Cycle()
     {
         _start = base.SetTimer(5); // start the timer and add delay to account for spinners and countdowns
         base.Countdown(); // initiate the starting countdown
