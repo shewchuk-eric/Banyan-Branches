@@ -4,13 +4,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        Goal goalManager = new Goal(); // create new Goal object which will automatically load existing goals when instantiated
+        List<Goal> _goalsList = new List<Goal>();
+        Goal goalManager = new Goal(); // create new Goal object which will give access to methods found in Goal
         bool runIt = true; // keeps program running until user selects 'quit'
         while (runIt)
         {
-            Console.WriteLine("Menu Options:\n   1. Create New Goal\n   2. List Goals\n   3. Save Goals\n   4. Record Event\n   5. Quit");
-            Console.Write("Select A Choice From The Menu: ");
-            string choice = Console.ReadLine();
+            string choice = goalManager.GetSelection();
             switch(choice)
             {
                 case "1":
@@ -26,13 +25,11 @@ class Program
                     switch(choice2)
                     {
                     case "1":
-                    Goal simple = new Simple("Simple" ,name, desc, points, "0", "0", "0");
-                    goalManager._goalsList.Add(simple);
+                    _goalsList.Add(new Simple("Simple",name,desc,points,"0","0","0"));
                     break;
 
                     case "2":
-                    Goal eternal = new Eternal("Eternal", name, desc, points, "0", "0", "0");
-                    goalManager._goalsList.Add(eternal);
+                    _goalsList.Add(new Eternal("Eternal",name,desc,points,"0","0","0"));
                     break;
 
                     case "3":
@@ -40,8 +37,7 @@ class Program
                     string iter = Console.ReadLine();
                     Console.Write($"What is the bonus for accomplishing this goal {iter} times? ");
                     string bonus = Console.ReadLine();
-                    Goal checklist = new Checklist("Checklist" ,name, desc, points, iter, bonus, "0");
-                    goalManager._goalsList.Add(checklist);
+                    _goalsList.Add(new Checklist("Checklist",name,desc,points,bonus,iter,"0"));
                     break;
 
                     default:
@@ -51,24 +47,45 @@ class Program
                 break;
 
                 case "2":
-                goalManager.ListGoals();
+                ShowGoals();
                 break;
 
                 case "3":
-                goalManager.WriteGoals();
+                goalManager.WriteGoals(_goalsList);
                 break;
 
                 case "4":
-                goalManager.RecordEvent();
+                goalManager.LoadFile(_goalsList); // load the saved entries from 'goals.txt'
                 break;
 
                 case "5":
+                Console.WriteLine("\nPlease choose from the following list:");
+                ShowGoals();
+                goalManager.RecordEvent(_goalsList);
+                break;
+
+                case "6":
                 runIt = false;
                 break;
                 
                 default:
                     Console.WriteLine($"{choice} is not a valid entry.");
                     continue;
+            }
+
+            void ShowGoals()
+            {
+                Console.WriteLine("");
+                int counter = 1;
+                if (_goalsList.Count > 0)
+                {
+                    foreach (Goal i in _goalsList)
+                    {
+                    Console.Write($"{counter}. ");
+                    goalManager.ListGoals(i);
+                    counter ++;
+                    }
+                } else {Console.WriteLine("There are no loaded goals\n");}
             }
         }
     }

@@ -1,6 +1,5 @@
-Simple,Program,Write the program,1000,0,0,1000,X
-Simple,Finish,Finish the program,2000,0,0,0, 
-Simple,test 1,testing simple,100,0,0,100,X
-Eternal,test 2,testing eternal,100,0,0,0, 
-Checklist,test 3,testing checklist,100,3,500,0, 
-Eternal,Temple,Attend the temple at least twice per year,500,0,0,0, 
+Simple,test,test,1000,0,0,0,1000,X
+Simple,Program,Write the program,1000,0,0,0,1000,X
+Simple,Finish,Finish the program,2000,0,0,0,0, 
+Simple,test 1,testing simple,100,0,0,0,100,X
+Checklist,test,test stuff,100,500,5,2,0, 

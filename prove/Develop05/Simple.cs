@@ -1,36 +1,22 @@
 public class Simple : Goal
 {
-    //private string _name; // name of goal
-    //private string _desc; // description of goal
-    //private string _points; // how many points the goal is worth
-    //private string _type = "Simple";
-    //private string _bonus = "void";
-    //private string _iter = "void";
-    //private string _done = "void";
-    //private string _score = "void";
-    //private string _complete = " ";
-
-    public Simple(string line)
-    {
-        string[] parts = line.Split(",");
-        _type = parts[0];
-        _name = parts[1];
-        _desc = parts[2];
-        _points = parts[3];
-        _bonus = parts[4];
-        _iter = parts[5];
-        _done = parts[6];
-        _complete = parts[7];
-    }
     
-    public Simple(string type, string name, string desc, string points, string bonus, string iter, string done) : base(type, name, desc, points, bonus, iter, done)
+    public Simple(string type, string name, string desc, string points, string bonus, string iter, string done) : base(/*type, name, desc, points, bonus, iter, done*/)
     {
+        _type = type;
+        _name = name; // name of goal
+        _desc = desc; // description of goal
+        _points = points; // how many points the goal is worth
+        _bonus = bonus; // how many bonus points the goal will earn
+        _iter = iter; // how many times the goal NEEDS to be completed
+        _done = done; // how many time the goal HAS been completed
+        _complete = " ";
         Console.Clear();
         base.ShowPoints();
     }
 
-    /*public override void ListGoals(Goal i)
+    public override void ListGoals(Goal i)
     {
-        Console.WriteLine($"[{i._complete}] {i._name} ({i._desc})");
-    }*/
+        Console.WriteLine($"[{_complete}] {_name} ({_desc})");
+    }
 }
