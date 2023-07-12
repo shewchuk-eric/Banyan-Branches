@@ -26,4 +26,9 @@ public class Swimming : Activity
         _pace = 60 / _speed;
         return _pace;
     }
+
+    public override string GetActivityType()
+    {
+        return "SWIMMING";
+    }
 }

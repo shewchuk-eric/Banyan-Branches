@@ -10,14 +10,11 @@ public abstract class Activity
         _time = time;
     }
 
-    public void SetActivity(Activity activity)
-    {
-        _activities.Add(activity);
-    }
-
     public abstract double Distance();
     public abstract double Speed();
     public abstract double Pace();
+    public abstract string GetActivityType();
+    
     public void GetSummary(double distance, double speed, double pace)
     {
         Console.WriteLine($"{_date} ({_time} min) - Distance: {distance} miles, Speed: {speed} mph, Pace: {pace} min/mile");

@@ -8,30 +8,26 @@ class Program
         double speed;
         double pace;
 
+        List<Activity> _activities = new List<Activity>();
 
         Activity running = new Running("12 July 2023",45,24); // each lap is .25 mile
-        running.SetActivity(running);
-        distance = running.Distance();
-        speed = running.Speed();
-        pace = running.Pace();
-        Console.WriteLine("\nRECENT RUNNING ACTIVIY");
-        running.GetSummary(distance, speed, pace);
+        _activities.Add(running);
 
         Activity cycling = new Cycling("14 July 2023",60,15); // speed is in MPH
-        cycling.SetActivity(cycling);
-        distance = cycling.Distance();
-        speed = cycling.Speed();
-        pace = cycling.Pace();
-        Console.WriteLine("\nRECENT CYCLING ACTIVIY");
-        cycling.GetSummary(distance, speed, pace);
+        _activities.Add(cycling);
 
         Activity swimming = new Swimming("16 July 2023",90,34); // each lap is 50 yards
-        swimming.SetActivity(swimming);
-        distance = swimming.Distance();
-        speed = swimming.Speed();
-        pace = swimming.Pace();
-        Console.WriteLine("\nRECENT SWIMMING ACTIVIY");
-        swimming.GetSummary(distance, speed, pace);
+        _activities.Add(swimming);
+
+        
+        foreach (Activity a in _activities)
+        {
+            distance = a.Distance();
+            speed = a.Speed();
+            pace = a.Pace();
+            Console.WriteLine($"\nRECENT {a.GetActivityType()} ACTIVIY");
+            swimming.GetSummary(distance, speed, pace);
+        }
         Console.WriteLine("");
     }
 }
