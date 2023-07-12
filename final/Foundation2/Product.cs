@@ -41,6 +41,6 @@ public class Product
             shippingCost = 5;
         }
         Console.WriteLine($"SHIPPING: ${shippingCost}.00");
-        Console.WriteLine($"ORDER TOTAL: ${orderTotal + shippingCost}.00\n");
+        Console.WriteLine($"ORDER TOTAL: ${orderTotal + shippingCost}.00");
     }
 }
