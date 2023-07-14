@@ -2,7 +2,6 @@ public class Swimming : Activity
 {
     private double _laps;
     private double _speed;
-    private double _pace;
     private double _distance;
 
     public Swimming(string date, int time, double laps) : base(date, time)
@@ -23,8 +22,7 @@ public class Swimming : Activity
 
     public override double Pace()
     {
-        _pace = 60 / _speed;
-        return _pace;
+        return 60 / _speed;
     }
 
     public override string GetActivityType()

@@ -2,7 +2,6 @@ public class Running : Activity
 {
     private int _laps; // number of laps on a theoretical 1/4 mile running track
     private double _speed;
-    private double _pace;
 
     public Running(string date, int time, int laps) : base(date, time)
     {
@@ -23,8 +22,7 @@ public class Running : Activity
 
     public override double Pace()
     {
-        _pace = 60 / _speed;
-        return _pace;
+        return 60 / _speed;
     }
 
     public override string GetActivityType()

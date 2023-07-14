@@ -1,7 +1,7 @@
 public abstract class Activity
 {
     private string _date;
-    protected int _time; // used by swimming so protected instead of private
+    protected int _time; // used by sub-activities so protected instead of private
     
     public Activity(string date, int time)
     {
