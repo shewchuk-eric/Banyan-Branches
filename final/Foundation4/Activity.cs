@@ -1,7 +1,7 @@
 public abstract class Activity
 {
     private string _date;
-    protected int _time;
+    protected int _time; // used by swimming so protected instead of private
     List<Activity> _activities = new List<Activity>();
 
     public Activity(string date, int time)
