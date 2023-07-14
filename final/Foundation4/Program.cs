@@ -26,7 +26,7 @@ class Program
             speed = a.Speed();
             pace = a.Pace();
             Console.WriteLine($"\nRECENT {a.GetActivityType()} ACTIVIY");
-            swimming.GetSummary(distance, speed, pace);
+            a.GetSummary(distance, speed, pace);
         }
         Console.WriteLine("");
     }
